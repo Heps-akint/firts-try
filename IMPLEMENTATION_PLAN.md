@@ -17,7 +17,7 @@ Rules:
    - Required validation: `python -m ruff check .`, `python -m black --check .`, `python -m mypy .`
    - Completion definition: `greeter/__init__.py` (or `greeter/core.py` + `__init__.py`) implements `greet`, `pyproject.toml` pins tool config
 
-2) [ ] TASK-PRD-01-B: Add tests for greet behavior
+2) [x] TASK-PRD-01-B: Add tests for greet behavior
    - PRD: PRD-01
    - What to change: add `tests/test_greeter.py`
    - Required validation: `python -m pytest -q`

@@ -32,3 +32,12 @@ Purpose: cross-session memory. DO NOT rewrite history. Append new entries only.
 - If blocked: `/bin/bash: line 1: python: command not found` (ruff/black/mypy)
 - Plan update made: yes
 - PRD update made: no
+
+### 2026-01-17 — Iteration 004 — TASK-PRD-01-B
+- Goal: add tests for greet behavior
+- What changed: added `tests/test_greeter.py`
+- Commands run + results: `python -m pytest -q` (failed: python not found), `python -m mypy .` (failed: python not found), `python -m ruff check .` (failed: python not found), `python -m black --check .` (failed: python not found), `date +%Y-%m-%d`
+- Outcome: task completed; validations blocked by missing python
+- If blocked: `/bin/bash: line 1: python: command not found` (pytest/mypy/ruff/black)
+- Plan update made: yes
+- PRD update made: no
