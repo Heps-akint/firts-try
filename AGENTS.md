@@ -1,35 +1,39 @@
-# AGENTS.md (Codex “operational contract”)
+## AGENTS.md
+## Build & Run
 
-## Goal
-Make it cheap for any fresh Codex session to:
-1) understand how to validate changes
-2) run the correct commands
-3) avoid repo-specific footguns
+This repo starts as “empty”. Use this as a generic Python scaffold.
 
-Keep this file short. No status updates here.
+### Setup (first time)
+- Create venv: `python -m venv .venv`
+- Activate (Windows PowerShell): `.venv\Scripts\Activate.ps1`
+- Activate (Git Bash): `source .venv/Scripts/activate`
+- Activate (macOS/Linux): `source .venv/bin/activate`
+- Upgrade pip: `python -m pip install -U pip`
 
-## Build & Run (edit these once per project)
-- Install:
-  - (fill in) e.g. `pnpm i` OR `pip install -r requirements.txt` OR `poetry install`
-- Dev run:
-  - (fill in) e.g. `pnpm dev` OR `python -m app`
+### Install dependencies
+- If present: `python -m pip install -r requirements.txt`
+- If present (dev): `python -m pip install -r requirements-dev.txt`
 
-## Validation (the backpressure)
-Run these after every change. Prefer fast + deterministic.
-- Unit tests (fast): (fill in) e.g. `pnpm test -r` / `pytest -q`
-- Full tests (CI-like): (fill in)
-- Typecheck: (fill in) e.g. `pnpm typecheck` / `mypy .`
-- Lint/format: (fill in) e.g. `pnpm lint` / `ruff check .`
+## Validation
 
-If unsure which commands exist, discover them (package.json, Makefile, README) then update this file.
+Run these after implementing to get immediate feedback:
 
-## Git workflow (default)
-- One Ralph iteration = one focused commit.
-- Commit message format:
-  - `feat(prd-XX): …` or `fix(prd-XX): …` or `chore: …`
-- Always include updates to: PRD.md / IMPLEMENTATION_PLAN.md / progress.md when relevant.
+- Tests (pytest): `python -m pytest -q`
+- Typecheck (mypy): `python -m mypy .`
+- Lint (ruff): `python -m ruff check .`
+- Format check (black): `python -m black --check .`
 
-## Safety rails
-- Do NOT touch secrets, tokens, SSH keys, or any `.env` not required.
-- Do NOT run destructive commands (`rm -rf`, `git reset --hard`, mass deletes) unless explicitly asked.
-- Prefer minimal diffs. No drive-by refactors unless required to pass validation.
+### If tools are missing
+Install the standard dev toolchain:
+`python -m pip install pytest ruff black mypy`
+
+## Operational Notes
+
+- Always run commands from repo root.
+- Prefer adding a minimal `pyproject.toml` to pin tool configs when repo grows.
+- Keep tests small and fast; one task per loop iteration.
+
+### Codebase Patterns
+
+- New code goes in a package folder (e.g. `src/<name>/` or `<name>/`), tests in `tests/`.
+- Each feature should have at least one test and a clear entrypoint (function or CLI).

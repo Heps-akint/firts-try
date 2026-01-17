@@ -1,31 +1,17 @@
-# PRD
+## PRD.md
 
-Purpose: the “what”. Stable, user-visible outcomes. Each item has an ID and acceptance criteria.
-Completion signal: checkbox ticked.
+# PRD: Ralph Loop Smoke Test (Python)
 
-## How to use
-- Add new items freely.
-- Never delete IDs; deprecate by noting “superseded by PRD-XX”.
-- Each build iteration should complete at most ONE PRD item (or a clearly-scoped sub-item).
+Goal: Create the smallest possible Python “feature” with real backpressure so the Ralph loop can plan, implement, run tests, and mark done.
 
----
+## PRD-01: Minimal greeter module + tests (smoke test)
 
-## PRD-01: <title>
-- [ ] Passes
+User story:
+As a developer, I want a tiny Python module with a function that returns a greeting string so I can verify the Ralph loop end-to-end (plan → implement → test → commit).
 
 Acceptance criteria:
-- AC1:
-- AC2:
-- AC3:
-
-Notes (optional):
-- Constraints, non-goals, links
-
----
-
-## PRD-02: <title>
-- [ ] Passes
-
-Acceptance criteria:
-- AC1:
-- AC2:
+- A function `greet(name: str) -> str` exists.
+- If `name` is `"Heps"`, it returns exactly `"Hello, Heps!"`.
+- If `name` is `""` or only whitespace, it returns exactly `"Hello, world!"`.
+- Unit tests exist and pass via: `python -m pytest -q`.
+- A minimal `pyproject.toml` exists so the repo has a clear Python/tooling baseline.

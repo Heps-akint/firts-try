@@ -11,7 +11,7 @@ Rules:
 
 ## Now (highest priority first)
 
-1) [ ] TASK-PRD-01-A: Add minimal greeter module and pyproject baseline
+1) [x] TASK-PRD-01-A: Add minimal greeter module and pyproject baseline
    - PRD: PRD-01
    - What to change: add `greeter/` package with `greet(name: str) -> str`, add minimal `pyproject.toml`
    - Required validation: `python -m ruff check .`, `python -m black --check .`, `python -m mypy .`
